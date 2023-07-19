@@ -31,6 +31,7 @@ import com.cba.thisurakarunanayaka.data.database.AppExecutors;
 import com.cba.thisurakarunanayaka.data.database.CrudOperations;
 import com.cba.thisurakarunanayaka.data.database.User_Data;
 import com.cba.thisurakarunanayaka.utilities.Constants;
+import com.cba.thisurakarunanayaka.utilities.ProgressBars;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher, Com
     private static final String KEY_REMEMBER = "remember";
     private static final String PREF_NAME = "prefs";
     SharedPreferences.Editor editor;
+    private ProgressBars progressBars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher, Com
         etPassword = findViewById(R.id.et_password);
         chkbxPwdRemember = findViewById(R.id.chkbx_pwdRemember);
         btnLogin = findViewById(R.id.btn_Login);
+        progressBars = new ProgressBars();
 
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -81,12 +84,11 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher, Com
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                progressBars.showProgress(LoginActivity.this, "", "Signing...");
                 CallApi(etUserName.getText().toString(), etPassword.getText().toString());
             }
         });
-
-
+        controlLoginButton();
     }
 
     @Override
@@ -176,17 +178,20 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher, Com
                             }
                         });
                     } catch (Exception e) {
+                        progressBars.dismissProgress();
                         Log.wtf(TAG, "INSERT_USER_DATA: " + e);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<UserResponse> call, Throwable t) {
+                    progressBars.dismissProgress();
                     Constants.showAlertBox(LoginActivity.this, getString(R.string.invalid_username));
 
                 }
             });
         } else {
+            progressBars.dismissProgress();
             Toast.makeText(this, getString(R.string.network_error), Toast.LENGTH_LONG).show();
         }
 
@@ -200,9 +205,9 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher, Com
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        progressBars.dismissProgress();
                         Intent intent = new Intent(LoginActivity.this, MainUiActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 }, 5000);
             }
