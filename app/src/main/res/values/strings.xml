@@ -15,5 +15,6 @@
     <string name="gender">Gender</string>
     <string name="company">Company</string>
     <string name="id">Id</string>
+    <string name="position">Position</string>
     invalid username or password
 </resources>
