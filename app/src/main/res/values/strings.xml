@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ThisuraKarunanayaka</string>
     <string name="login">Login</string>
+    <string name="enter_your_username">Enter Your Username</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
