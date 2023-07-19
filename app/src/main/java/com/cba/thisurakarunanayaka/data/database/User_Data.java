@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user_data")
-public class UserData {
+public class User_Data {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -16,8 +16,10 @@ public class UserData {
     private String company;
     private String position;
 
+    public User_Data() {
+    }
 
-    public UserData(String email, String name, String dob, String gender, String company, String position) {
+    public User_Data(String email, String name, String dob, String gender, String company, String position) {
         this.email = email;
         this.name = name;
         this.dob = dob;

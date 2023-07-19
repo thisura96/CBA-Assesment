@@ -5,4 +5,7 @@
     <string name="enter_your_password">Enter Your Password</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="network_error">Please check the network connection</string>
+    <string name="invalid_username">invalid username or password</string>
+    invalid username or password
 </resources>

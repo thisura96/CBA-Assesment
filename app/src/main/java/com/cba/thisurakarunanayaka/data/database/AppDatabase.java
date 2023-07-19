@@ -8,10 +8,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.cba.thisurakarunanayaka.data.database.dao.UserDataDao;
 import com.cba.thisurakarunanayaka.utilities.Constants;
 
 
-@Database(entities = {UserData.class
+@Database(entities = {User_Data.class
 }, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String LOG_TAG = AppDatabase.class.getSimpleName();
@@ -31,4 +32,6 @@ public abstract class AppDatabase extends RoomDatabase {
         Log.d(LOG_TAG, "Getting the database instance");
         return sInstance;
     }
+
+    public abstract UserDataDao userDataDao();
 }

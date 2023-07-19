@@ -17,12 +17,6 @@ public class APIClient {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//        builder.connectTimeout(30, TimeUnit.SECONDS) // connect timeout
-//                .writeTimeout(30, TimeUnit.SECONDS) // write timeout
-//                .readTimeout(30, TimeUnit.SECONDS); // read timeout
-
-        // need to implement the try catch for api calls when get a time out exception
-
         builder.writeTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS);
 
         OkHttpClient okHttpClient = builder.addInterceptor(httpLoggingInterceptor).build();
@@ -36,8 +30,8 @@ public class APIClient {
         return retrofit;
     }
 
-    public static UserServices getDivisionalGrossQtyService(){
-        UserServices divisionalGrossQtyService = getRetrofit().create(UserServices.class);
-        return divisionalGrossQtyService;
+    public static UserServices getUserServices(){
+        UserServices userServices = getRetrofit().create(UserServices.class);
+        return userServices;
     }
 }
