@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normal_text_size">16sp</dimen>
+    <dimen name="btn_text_size">18sp</dimen>
+    <dimen name="et_hint_size">18sp</dimen>
+    <dimen name="large_text_size">20sp</dimen>
+    <dimen name="larger_text_size">25sp</dimen>
+    <dimen name="hint_small_text_size">10sp</dimen>
+</resources>
