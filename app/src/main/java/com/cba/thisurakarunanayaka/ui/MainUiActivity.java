@@ -19,7 +19,7 @@ import java.util.List;
 public class MainUiActivity extends AppCompatActivity {
 
 
-    TextView tv_email, tv_name, tv_dob, tv_gender, tv_company, tv_position;
+    TextView tv_id, tv_email, tv_name, tv_dob, tv_gender, tv_company, tv_position;
     TextView btnLoadUserData;
     List<User_Data> user_data;
     private AppDatabase mDb;
@@ -31,7 +31,7 @@ public class MainUiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ui);
 
-
+        tv_id = findViewById(R.id.tv_id);
         tv_email = findViewById(R.id.tv_email);
         tv_name = findViewById(R.id.tv_name);
         tv_dob = findViewById(R.id.tv_dob);
@@ -56,6 +56,7 @@ public class MainUiActivity extends AppCompatActivity {
     private void setValuesForScreen(List<User_Data> user_data) {
         if (user_data.size() > 0) {
             for (User_Data data : user_data) {
+                tv_id.setText(data.getUserid() == null ? "-" : data.getUserid());
                 tv_email.setText(data.getEmail() == null ? "-" : data.getEmail());
                 tv_name.setText(data.getName() == null ? "-" : data.getName());
                 tv_dob.setText(data.getDob() == null ? "-" : data.getDob());

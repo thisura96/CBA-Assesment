@@ -9,6 +9,7 @@ public class User_Data {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+    private String userid;
     private String email;
     private String name;
     private String dob;
@@ -19,13 +20,22 @@ public class User_Data {
     public User_Data() {
     }
 
-    public User_Data(String email, String name, String dob, String gender, String company, String position) {
+    public User_Data(String userid, String email, String name, String dob, String gender, String company, String position) {
+        this.userid = userid;
         this.email = email;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
         this.company = company;
         this.position = position;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public int getId() {
