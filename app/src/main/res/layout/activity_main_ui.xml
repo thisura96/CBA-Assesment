@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
         android:gravity="center"
+        android:elevation="100dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -160,5 +161,12 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/background"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
