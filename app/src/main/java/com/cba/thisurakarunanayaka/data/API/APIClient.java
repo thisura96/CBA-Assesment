@@ -1,5 +1,6 @@
 package com.cba.thisurakarunanayaka.data.API;
 
+import com.cba.thisurakarunanayaka.data.API.interfaces.UserServices;
 import com.cba.thisurakarunanayaka.utilities.Constants;
 
 import java.util.concurrent.TimeUnit;
@@ -33,5 +34,10 @@ public class APIClient {
                 .build();
 
         return retrofit;
+    }
+
+    public static UserServices getDivisionalGrossQtyService(){
+        UserServices divisionalGrossQtyService = getRetrofit().create(UserServices.class);
+        return divisionalGrossQtyService;
     }
 }
